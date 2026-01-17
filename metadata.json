@@ -1,0 +1,7 @@
+{
+  "name": "Copy of Daily Essentials - Verified Life Tools",
+  "description": "A curated registry of high-utility, verified products for modern life. Curated for durability and efficiency.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
