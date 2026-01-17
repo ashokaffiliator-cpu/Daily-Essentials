@@ -219,8 +219,10 @@ const App: React.FC = () => {
   const renderProductDetails = () => {
     if (!selectedProduct) return null;
 
-    const searchQueryParam = selectedProduct.solution || selectedProduct.title;
-    const amazonSearchUrl = `https://www.amazon.com/s?k=${encodeURIComponent(searchQueryParam)}&tag=dailyessentials-20`;
+    // Use direct affiliate URL if provided, otherwise fallback to a search with your tag
+    const amazonUrl = (selectedProduct.affiliateUrl && selectedProduct.affiliateUrl !== 'https://amazon.com')
+      ? selectedProduct.affiliateUrl
+      : `https://www.amazon.com/s?k=${encodeURIComponent(selectedProduct.solution || selectedProduct.title)}&tag=dailyessentials-20`;
 
     return (
       <div className="max-w-5xl mx-auto px-4 md:px-6 py-8 md:py-16 animate-in fade-in slide-in-from-bottom-4 duration-500">
@@ -233,7 +235,6 @@ const App: React.FC = () => {
         </button>
 
         <div className="space-y-12 md:space-y-20">
-          {/* Disclaimer Box in a box as requested */}
           <section className="bg-orange-50 border-2 border-dashed border-orange-200 p-6 rounded-2xl flex items-start gap-4">
             <div className="bg-orange-500 text-white p-2 rounded-lg shrink-0">
               <i className="fa-solid fa-circle-info text-sm"></i>
@@ -275,10 +276,10 @@ const App: React.FC = () => {
                 <h2 className="text-3xl font-black text-stone-900 italic">Why we chose this specific item</h2>
                 <div className="prose prose-stone italic text-stone-600 text-lg leading-relaxed space-y-6">
                   <p>
-                    Finding a real <span className="text-orange-600 font-bold">{selectedProduct.solution || 'solution'}</span> in a market flooded with cheap clones is exhausting. We spent weeks looking at materials and how it actually feels to use in a daily rush.
+                    Finding a real <span className="text-orange-600 font-bold">{selectedProduct.solution || 'solution'}</span> in a market flooded with empty promises is exhausting. We spent weeks looking at ingredients, material quality, and real-world results.
                   </p>
                   <p>
-                    This isn't just a gadget; it's a mechanical upgrade to your day. It solved exactly the problem we were having—no more, no less. It’s built to be used every day.
+                    This isn't just a basic purchase; it's a vetted upgrade to your standard routine. It solved exactly the problem we were having.
                   </p>
                 </div>
               </div>
@@ -305,7 +306,7 @@ const App: React.FC = () => {
             </div>
             <div className="relative z-10 space-y-6">
                 <a 
-                  href={amazonSearchUrl} 
+                  href={amazonUrl} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-4 md:gap-6 bg-white text-stone-900 px-8 md:px-16 py-5 md:py-8 rounded-2xl md:rounded-[2rem] text-lg md:text-xl font-black hover:scale-105 active:scale-95 transition-all shadow-2xl group w-full md:w-auto justify-center"

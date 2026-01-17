@@ -3,6 +3,19 @@ import { Product } from './types';
 
 export const PRODUCTS: Product[] = [
   {
+    id: 'man-matters-shampoo',
+    title: 'Man Matters DHT Blocker Hair Strengthening Shampoo',
+    category: 'Self Care',
+    price: 12.99,
+    image: '',
+    description: 'A science-backed solution for thinning hair. This DHT blocker shampoo uses Biotin and Argan oil to strengthen follicles from the root. It’s become a mandatory part of our morning ritual for noticeable density.',
+    rating: 4.7,
+    reviews: 5200,
+    affiliateUrl: 'https://amzn.to/3YFuWtj',
+    tags: ['Daily Routine', 'Hair Health'],
+    solution: 'DHT Blocker Shampoo'
+  },
+  {
     id: 'kids-printer',
     title: 'Instant Inkless Drawing Sticker Printer',
     category: 'Gadgets',
